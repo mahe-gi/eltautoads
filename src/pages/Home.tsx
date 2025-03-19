@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import  { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   Megaphone,
   Target,
@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 
 function Home() {
-  const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
@@ -169,11 +168,11 @@ function Home() {
               <Link
                 to={service.link}
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 cursor-pointer"
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 border border-gray-200"
               >
                 <div className="mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-textPrimary">{service.title}</h3>
+                <p className="text-textSecondary">{service.description}</p>
               </Link>
             ))}
           </div>
@@ -205,42 +204,58 @@ function Home() {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-gray-100">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-16">
-            Visit Our Office
+          <h2 className="text-3xl font-bold text-center mb-16 text-gray-800">
+        Visit Our Office
           </h2>
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <MapPin className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold text-lg mb-6">Head Office</h3>
-                  <p className="text-gray-600">
-                    Hyderabad <br />
-                    Telangana <br />
-                    India
-                  </p>
-                </div>
-              </div>
-              <Link
-                to="/contact"
-                className="inline-block bg-blue-600 text-white px-4 py-3 rounded-md font-semibold hover:bg-blue-700 transition duration-300"
-              >
-                Contact Us
-              </Link>
+        <div className="space-y-8">
+          <div className="flex items-start space-x-4">
+            <MapPin className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="font-semibold text-xl mb-2 text-gray-800">
+          Head Office
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+          Hyderabad <br />
+          Telangana <br />
+          India
+              </p>
             </div>
-            <div className="h-[400px] rounded-lg overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d288696.720375527!2d78.24323613415223!3d17.412281018698568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e1!3m2!1sen!2sin!4v1742366948762!5m2!1sen!2sin"
-                width="600"
-                height="450"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
+          </div>
+          <p className="text-gray-700 leading-relaxed">
+            Our head office is located in the heart of Hyderabad, offering easy
+            accessibility for our clients and partners. Feel free to visit us
+            for any inquiries or discussions about your advertising needs.
+          </p>
+          <p className="text-gray-700 leading-relaxed">
+            Call us to know more:{" "}
+            <a
+              href="tel:+919876543210"
+              className="text-blue-600 font-semibold hover:underline"
+            >
+              +91 98765 43210
+            </a>
+          </p>
+          <Link
+            to="/contact"
+            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition duration-300"
+          >
+            Contact Us
+          </Link>
+        </div>
+        <div className="h-[400px] rounded-lg overflow-hidden shadow-lg">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d288696.720375527!2d78.24323613415223!3d17.412281018698568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e1!3m2!1sen!2sin!4v1742366948762!5m2!1sen!2sin"
+            width="600"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
           </div>
         </div>
       </section>
